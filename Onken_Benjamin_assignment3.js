@@ -12,18 +12,21 @@ var jsonData =
 			"fishID": "01897",
 			"type": "Northern Pike",
 			"bait": "Bucktail",
+			"numOfBait": 3,
 			"worldrecord": 63
 		},
 		{
 			"fishID": "01898",
 			"type": "Bass",
 			"bait": "Worm",
+			"numOfBait": 4,
 			"worldrecord": 22
 		},
 		{
 			"fishID": "01899",
 			"type": "Walleye",
 			"bait": "Minnow",
+			"numOfBait": 2,
 			"worldrecord": 22  
 		}
 	],
@@ -68,33 +71,24 @@ var findANewSpot = function(newSpot)
 		console.log("We will continue to fish here at our current spot!");
 	};
 };
-/*
-var whatTypeOfFish = function(numberOfSpecies,typesOfFish)
+
+var baitLeft = function()
 {
-	for (var difTypesFish = numberOfSpecies; difTypesFish >= 0 && difTypesFish <= 5; difTypesFish--) 
+	for (var bNum = 2; bNum >= 0 && bNum <= 4; bNum--) 
 	{
-		caughtSoFar++;
-		output("So far we have caught " + caughtSoFar + " types of fish! The most recent was a " + typesOfFish[difTypesFish]);
-	};
-	return(caughtSoFar);
-//
-	output("Since we have 3 people in the boat, the maximum amount of fish we can keep for dinner is 9.");
-	var fishReleased = 0;
-	while(fishToKeep > 9)
-	{
-		fishToKeep--;
-		fishReleased++;
 
-		output("We have released " + fishReleased + " fish and still have " + fishToKeep + " fish left.");
+		while(jsonData.fish[bNum].numOfBait >= 0)
+		{
+		jsonData.fish[bNum].numOfBait--;
+		baitRemaining = jsonData.fish[bNum].numOfBait + 1;
 
+		console.log("We have " + baitRemaining + " " + jsonData.fish[bNum].bait + "s left!");
 
+		};
 
 	};
-	fishCaught = fishToKeep;
-	return(fishCaught);
-
 };
-*/
+
 
 
 
@@ -105,4 +99,5 @@ var whatTypeOfFish = function(numberOfSpecies,typesOfFish)
 
 
 findANewSpot(true);
+baitLeft();
 
