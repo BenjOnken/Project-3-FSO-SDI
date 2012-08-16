@@ -13,6 +13,7 @@ var jsonData =
 			"type": "Northern Pike",
 			"bait": "Bucktail",
 			"numOfBait": 3,
+			"biggestCaught": 22,
 			"worldrecord": 63
 		},
 		{
@@ -20,6 +21,7 @@ var jsonData =
 			"type": "Bass",
 			"bait": "Worm",
 			"numOfBait": 4,
+			"biggestCaught": 7,
 			"worldrecord": 22
 		},
 		{
@@ -27,6 +29,7 @@ var jsonData =
 			"type": "Walleye",
 			"bait": "Minnow",
 			"numOfBait": 2,
+			"biggestCaught": 9,
 			"worldrecord": 22  
 		}
 	],
@@ -100,4 +103,11 @@ var baitLeft = function()
 
 findANewSpot(true);
 baitLeft();
+for (var i = jsonData.fish.length - 1; i >= 0; i--) 
+{
+	var difFromRec = jsonData.fish[i].worldrecord - jsonData.fish[i].biggestCaught;
+	console.log("Our biggest " + jsonData.fish[i].type + " caught today was " + difFromRec + "lbs away from a World Record!")
+};
+
+
 
