@@ -35,14 +35,24 @@ var jsonData =
 		}
 	]
 };
+//Method Accessor
+var host = {
+	name: "Benjamin",
+	favoriteFish: "Pike",
+	home: "Omaha"
+};
+var myName = host.name;
 //Global Properties
-var myName = "Benjamin";
+
 var pike = true;
 var howFarFromCamp = [15, "miles"];
 var gas = 2;
 
-// Function with Argument Boolean with Nested Conditional and BACK and Return Boolean
-var findANewSpot = function(newSpot)
+//One big object with my functions inside
+var dayOnTheLake = 
+{
+// Method with Argument Boolean with Nested Conditional and BACK and Return Boolean
+findANewSpot: function(newSpot)
 {
 	if(newSpot == true)
 	{
@@ -63,9 +73,9 @@ var findANewSpot = function(newSpot)
 		catchingFish = true;
 		return(catchingFish);
 	};
-};
-//Function with For Loop, While Loop, Nested Loop, local variables, BACK
-var baitLeft = function()
+},
+//Method with For Loop, While Loop, Nested Loop, local variables, BACK,accessor
+baitLeft: function()
 {
 	for (var bNum = 2; bNum >= 0 && bNum <= 4; bNum--) 
 	{
@@ -80,9 +90,9 @@ var baitLeft = function()
 		};
 
 	};
-};
-//function with number argument, string argument, array argument
-var boatGas = function(gasLevel,gasType,distanceBack)
+},
+//Method with number argument, string argument, array argument
+boatGas: function(gasLevel,gasType,distanceBack)
 {
 	//conditional with return string
 	if(gasLevel >= distanceBack[0])
@@ -97,18 +107,32 @@ var boatGas = function(gasLevel,gasType,distanceBack)
 		};
 
 
-};
-//function with array argument, number argument, return number, math
-var distanceFromCamp = function(gasLevel,distanceBack)
+},
+//Method with array argument, number argument, return number, math
+distanceFromCamp: function(gasLevel,distanceBack)
 {
 	howFarwWeCanGo = distanceBack[0] - gasLevel;
 	return(howFarwWeCanGo);
-}
+},
 
+//Method with boolean argument, conditional, return array
+boatTow: function(canSomeoneTow)
+{
+	if(canSomeoneTow == true)
+	{
+		towInfo = ["Thomas", 55, "quick."];
+		return(towInfo);
+	}
+	else
+	{
+		towInfo = ["No one", 0, "as fast as you can swim."];
+		return(towInfo);
+	};
+},
 
 
 //Object with Properties String, Number, Object -> Boolean, String.
-var dinnerActivities =
+dinnerActivities:
 {
 	mainCourse: "Steak",
 	numberOfPeople: 4,
@@ -117,45 +141,50 @@ var dinnerActivities =
 		haveRoom: false,
 		whatType: "Cheesecake"
 	}
+}
+
+
 };
 
 
 
 
+//Story time
 
 
 
 
-
-
-
-
-
+console.log("Hey my name is " + myName);
 console.log("Are we catching any fish here?");
-findANewSpot(false);
+dayOnTheLake.findANewSpot(false);
 //Conditional
 if (catchingFish == true)
 {
 	console.log("We are catching a lot of fish here!");
 };
-baitLeft();
-//for loop with Math
+	console.log("How much bait do we have left?");
+dayOnTheLake.baitLeft();
+//for loop with Math, Method Accessor
 for (var i = jsonData.fish.length - 1; i >= 0; i--) 
 {
 	var difFromRec = jsonData.fish[i].worldrecord - jsonData.fish[i].biggestCaught;
 	console.log("Our biggest " + jsonData.fish[i].type + " caught today was " + difFromRec + "lbs away from a World Record!");
 };
 //argument Number, String, Array
-boatGas(gas,"Unleaded",howFarFromCamp);
+dayOnTheLake.boatGas(gas,"Unleaded",howFarFromCamp);
 console.log(statusMessage);
 //argument Number, Array
-distanceFromCamp(gas,howFarFromCamp);
+dayOnTheLake.distanceFromCamp(gas,howFarFromCamp);
 console.log("We can go " + howFarFromCamp[0] + " " + howFarFromCamp[1] + " until we run out of gas! We will be " + howFarwWeCanGo + " " + howFarFromCamp[1] + " away still.");
+//argument boolean
+dayOnTheLake.boatTow(true);
+console.log(towInfo[0] + " can tow us back. The cost will be " + towInfo[1] + " dollars. The speed will be " + towInfo[2]);
+
 //Conditional
-console.log("Tonight our main course will be " + dinnerActivities.mainCourse + ". We have enough for " + dinnerActivities.numberOfPeople + " people.");
-if (dinnerActivities.dessert.haveRoom == true)
+console.log("Tonight our main course will be " + dayOnTheLake.dinnerActivities.mainCourse + ". We have enough for " + dayOnTheLake.dinnerActivities.numberOfPeople + " people.");
+if (dayOnTheLake.dinnerActivities.dessert.haveRoom == true)
 {
-	console.log("We will be having " + dinnerActivities.dessert.whatType + " for dessert tonight!");
+	console.log("We will be having " + dayOnTheLake.dinnerActivities.dessert.whatType + " for dessert tonight!");
 }
 else
 {
