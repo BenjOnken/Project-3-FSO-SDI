@@ -3,9 +3,10 @@
 
 
 */
-
+//JSON
 var jsonData = 
 {
+//Property Array
 	"fish": 
 	[
 		{
@@ -32,28 +33,15 @@ var jsonData =
 			"biggestCaught": 9,
 			"worldrecord": 22  
 		}
-	],
-	"boatMates":
-	{
-		"03901":
-		{
-			"name": "Jenny",
-			"occupation": "Doctor",
-			"favoriteFish": "Walleye"
-		},
-		"03904":
-		{
-			"name": "Chuck",
-			"occupation": "Electrician",
-			"favoriteFish": "Bass"
-		}
-	}
+	]
 };
-
+//Global Properties
 var myName = "Benjamin";
 var pike = true;
+var howFarFromCamp = [15, "miles"];
+var gas = 2;
 
-
+// Function with Argument Boolean with Nested Conditional and BACK and Return Boolean
 var findANewSpot = function(newSpot)
 {
 	if(newSpot == true)
@@ -72,9 +60,11 @@ var findANewSpot = function(newSpot)
 	else
 	{
 		console.log("We will continue to fish here at our current spot!");
+		catchingFish = true;
+		return(catchingFish);
 	};
 };
-
+//Function with For Loop, While Loop, Nested Loop, local variables, BACK
 var baitLeft = function()
 {
 	for (var bNum = 2; bNum >= 0 && bNum <= 4; bNum--) 
@@ -91,12 +81,37 @@ var baitLeft = function()
 
 	};
 };
+//function with number argument, string argument, array argument
+var boatGas = function(gasLevel,gasType,distanceBack)
+{
+	//conditional with return string
+	if(gasLevel >= distanceBack[0])
+		{
+			statusMessage = "Yay, we have enough " + gasType + " gas to get back to camp!";
+			return(statusMessage);
+		}
+	else
+		{
+			statusMessage = "Just checked the gas gauge, Uh oh....";
+			return(statusMessage);
+		};
 
+
+};
+//function with array argument, number argument, return number, math
+var distanceFromCamp = function(gasLevel,distanceBack)
+{
+	howFarwWeCanGo = distanceBack[0] - gasLevel;
+	return(howFarwWeCanGo);
+}
+
+
+
+//Object with Properties String, Number, Object -> Boolean, String.
 var dinnerActivities =
 {
 	mainCourse: "Steak",
 	numberOfPeople: 4,
-	vegetarians: false,
 	dessert:
 	{
 		haveRoom: false,
@@ -111,14 +126,32 @@ var dinnerActivities =
 
 
 
-findANewSpot(true);
+
+
+
+
+
+console.log("Are we catching any fish here?");
+findANewSpot(false);
+//Conditional
+if (catchingFish == true)
+{
+	console.log("We are catching a lot of fish here!");
+};
 baitLeft();
+//for loop with Math
 for (var i = jsonData.fish.length - 1; i >= 0; i--) 
 {
 	var difFromRec = jsonData.fish[i].worldrecord - jsonData.fish[i].biggestCaught;
 	console.log("Our biggest " + jsonData.fish[i].type + " caught today was " + difFromRec + "lbs away from a World Record!");
 };
-
+//argument Number, String, Array
+boatGas(gas,"Unleaded",howFarFromCamp);
+console.log(statusMessage);
+//argument Number, Array
+distanceFromCamp(gas,howFarFromCamp);
+console.log("We can go " + howFarFromCamp[0] + " " + howFarFromCamp[1] + " until we run out of gas! We will be " + howFarwWeCanGo + " " + howFarFromCamp[1] + " away still.");
+//Conditional
 console.log("Tonight our main course will be " + dinnerActivities.mainCourse + ". We have enough for " + dinnerActivities.numberOfPeople + " people.");
 if (dinnerActivities.dessert.haveRoom == true)
 {
@@ -127,7 +160,8 @@ if (dinnerActivities.dessert.haveRoom == true)
 else
 {
 	console.log("Too bad you are too full for dessert!");
-}
+};
+
 
 
 
