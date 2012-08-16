@@ -92,7 +92,17 @@ var baitLeft = function()
 	};
 };
 
-
+var dinnerActivities =
+{
+	mainCourse: "Steak",
+	numberOfPeople: 4,
+	vegetarians: false,
+	dessert:
+	{
+		haveRoom: false,
+		whatType: "Cheesecake"
+	}
+};
 
 
 
@@ -106,8 +116,29 @@ baitLeft();
 for (var i = jsonData.fish.length - 1; i >= 0; i--) 
 {
 	var difFromRec = jsonData.fish[i].worldrecord - jsonData.fish[i].biggestCaught;
-	console.log("Our biggest " + jsonData.fish[i].type + " caught today was " + difFromRec + "lbs away from a World Record!")
+	console.log("Our biggest " + jsonData.fish[i].type + " caught today was " + difFromRec + "lbs away from a World Record!");
 };
+
+console.log("Tonight our main course will be " + dinnerActivities.mainCourse + ". We have enough for " + dinnerActivities.numberOfPeople + " people.");
+if (dinnerActivities.dessert.haveRoom == true)
+{
+	console.log("We will be having " + dinnerActivities.dessert.whatType + " for dessert tonight!");
+}
+else
+{
+	console.log("Too bad you are too full for dessert!");
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
