@@ -47,6 +47,11 @@ var myName = host.name;
 var pike = true;
 var howFarFromCamp = [15, "miles"];
 var gas = 2;
+var driversList = {
+	driver1: "Ben",
+	driver2: "Jeff",
+	driver3: "Karen"
+};
 
 //One big object with my functions inside
 var dayOnTheLake = 
@@ -74,7 +79,7 @@ findANewSpot: function(newSpot)
 		return(catchingFish);
 	};
 },
-//Method with For Loop, While Loop, Nested Loop, local variables, BACK,accessor
+//Method Procedure with For Loop, While Loop, Nested Loop, local variables, BACK,accessor
 baitLeft: function()
 {
 	for (var bNum = 2; bNum >= 0 && bNum <= 4; bNum--) 
@@ -94,6 +99,7 @@ baitLeft: function()
 //Method with number argument, string argument, array argument
 boatGas: function(gasLevel,gasType,distanceBack)
 {
+	
 	//conditional with return string
 	if(gasLevel >= distanceBack[0])
 		{
@@ -105,15 +111,16 @@ boatGas: function(gasLevel,gasType,distanceBack)
 			statusMessage = "Just checked the gas gauge, Uh oh....";
 			return(statusMessage);
 		};
-
-
+		
 },
+
 //Method with array argument, number argument, return number, math
 distanceFromCamp: function(gasLevel,distanceBack)
 {
-	howFarwWeCanGo = distanceBack[0] - gasLevel;
-	return(howFarwWeCanGo);
+			howFarwWeCanGo = distanceBack[0] - gasLevel;
+			return(howFarwWeCanGo);
 },
+
 
 //Method with boolean argument, conditional, return array
 boatTow: function(canSomeoneTow)
@@ -146,7 +153,15 @@ dinnerActivities:
 
 };
 
-
+var driveHome = function(listOfDrivers)
+{
+	console.log("The first driver on our way home will be " + listOfDrivers.driver1 + " and the second driver will be " + listOfDrivers.driver2 + ".");
+didNotDrive = {
+	didntDrive1: "Karen",
+	didntDrive2: "Greg"
+};
+	return(didNotDrive);
+};
 
 
 //Story time
@@ -191,8 +206,8 @@ else
 	console.log("Too bad you are too full for dessert!");
 };
 
-
-
+driveHome(driversList);
+console.log(didNotDrive.didntDrive1 + " and " + didNotDrive.didntDrive2 + " did not have to drive.");
 
 
 
