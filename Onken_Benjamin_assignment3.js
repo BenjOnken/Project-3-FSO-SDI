@@ -1,7 +1,8 @@
 /*
-
-
-
+Benjamin Onken
+8/16/2012
+Project 3
+Let's keep fishing!
 */
 //JSON
 var jsonData = 
